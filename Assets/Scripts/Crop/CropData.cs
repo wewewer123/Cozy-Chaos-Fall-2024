@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CropData : MonoBehaviour
@@ -21,11 +19,11 @@ public class CropData : MonoBehaviour
         {
             ResetCrop();
         }
-        else if(ExistTime < ReadyTime)
+        else if (ExistTime < ReadyTime)
         {
             gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
         }
-        else if(ExistTime >= ReadyTime)
+        else if (ExistTime >= ReadyTime)
         {
             gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.green;
         }
