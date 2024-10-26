@@ -37,7 +37,7 @@ public class CropManager : MonoBehaviour
         if (cropField[posGrid.x, posGrid.y] != null && cropField[posGrid.x, posGrid.y].CanCollect())
         {
             Debug.Log("Remove crop at " + posGrid);
-            RemoveCrop(posGrid);
+            CollectCrop(posGrid);
         }
         else
         {
@@ -70,10 +70,11 @@ public class CropManager : MonoBehaviour
         cropField[position.x, position.y] = crop;
     }
 
-    private void RemoveCrop(Vector2Int position)
+    private void CollectCrop(Vector2Int position)
     {
         var crop = cropField[position.x, position.y];
         if (crop == null) return;
+        if (!crop.CanCollect()) return;
         crop.Collect();
         cropField[position.x, position.y] = null;
     }
