@@ -1,0 +1,9 @@
+Germination Stage -> Vine Stage -> Blossom Stage -> Fruit Stage -> Ripe Stage -> Dead Stage
+
+Fruit Stage -> Take Damage -> Under Attack Stage 
+
+Ripe Stage -> Take Damage -> Under Attack Stage 
+
+Under Attack Stage -> Zero Health -> Dead Stage
+
+Under Attack Stage -> Crow Scared -> State before Transitioning into Under Attack Stage
