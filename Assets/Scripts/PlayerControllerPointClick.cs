@@ -26,7 +26,7 @@ public class PlayerControllerPointClick : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            _cropManager.PlanCrop(transform.position);
+            _cropManager.Interact(transform.position);
         }
 
         if ((destination - transform.position).magnitude >= 0.1f)
