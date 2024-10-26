@@ -127,7 +127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6806957868540287338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06fccae274568740a29b8a2b6eb3f37, type: 3}
   m_Name: 
@@ -219,3 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a557b386ae1c41a409097a482873e644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cropManager: {fileID: 0}
+  germinationStage: {fileID: 0}
+  vineStage: {fileID: 0}
+  blossomStage: {fileID: 0}
+  fruitStage: {fileID: 0}
+  ripeStage: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class CropManager : MonoBehaviour
     [SerializeField] private BoxCollider2D cropBoundary;
     [SerializeField] private float cropSquareUnit = 1;
 
-    private Dictionary<Vector3Int, Crop> crops = new();
+    private Dictionary<Vector2Int, Crop> damageableCrops = new();
 
 
     private Crop[,] cropField;
@@ -32,18 +33,32 @@ public class CropManager : MonoBehaviour
 
     public void Interact(Vector3 position)
     {
-        var posInt = ConvertToBlockPosition(position);
         var posGrid = ConvertToGridPosition(position);
-        if (cropField[posGrid.x, posGrid.y] != null)
+        if (cropField[posGrid.x, posGrid.y] != null && cropField[posGrid.x, posGrid.y].CanCollect())
         {
-            Debug.Log("Remove crop at " + posInt);
+            Debug.Log("Remove crop at " + posGrid);
             RemoveCrop(posGrid);
         }
         else
         {
-            Debug.Log("Plant crop at " + posInt);
+            Debug.Log("Plant crop at " + posGrid);
             PlantCrop(posGrid);
         }
+    }
+
+    public Crop GetDamageableCrop()
+    {
+        if (damageableCrops.Count == 0) return null;
+        var randomIndex = Random.Range(0, damageableCrops.Count);
+        var randomCrop = damageableCrops.ElementAt(randomIndex);
+        damageableCrops.Remove(randomCrop.Key);
+        return randomCrop.Value;
+    }
+
+    public void AddDamageableCrop(Crop crop)
+    {
+        if (damageableCrops.ContainsKey(ConvertToGridPosition(crop.transform.position))) return;
+        damageableCrops.Add(ConvertToGridPosition(crop.transform.position), crop);
     }
 
 
@@ -51,10 +66,11 @@ public class CropManager : MonoBehaviour
     {
         var pos = GridPositionToGridCenter(position);
         var crop = Instantiate(cropPrefab, pos, Quaternion.identity).GetComponent<Crop>();
+        crop.cropManager = this;
         cropField[position.x, position.y] = crop;
     }
 
-    public void RemoveCrop(Vector2Int position)
+    private void RemoveCrop(Vector2Int position)
     {
         var crop = cropField[position.x, position.y];
         if (crop == null) return;
@@ -63,7 +79,7 @@ public class CropManager : MonoBehaviour
     }
 
 
-    public static Vector3Int ConvertToBlockPosition(Vector3 position)
+    private static Vector3Int ConvertToBlockPosition(Vector3 position)
     {
         return new Vector3Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y), Mathf.FloorToInt(position.z));
     }
