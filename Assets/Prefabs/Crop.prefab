@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5955389457829836923}
   - component: {fileID: 3947135038738804262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3025920123489983416}
   - component: {fileID: 3679852049423378161}
   - component: {fileID: 7069055462742952078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crop
   m_TagString: Crop
   m_Icon: {fileID: 0}
@@ -220,8 +220,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cropManager: {fileID: 0}
-  germinationStage: {fileID: 0}
-  vineStage: {fileID: 0}
-  blossomStage: {fileID: 0}
-  fruitStage: {fileID: 0}
-  ripeStage: {fileID: 0}

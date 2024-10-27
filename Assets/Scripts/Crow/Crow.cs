@@ -53,6 +53,11 @@ namespace CozyChaos2024Fall
 
         private void WhenCropDestroyed(object sender, EventArgs e)
         {
+            FlyAway();
+        }
+
+        public void FlyAway()
+        {
             isReturning = true;
             destination = crowManager.GetRandomEdgeLocation();
         }

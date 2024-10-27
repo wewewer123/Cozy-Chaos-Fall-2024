@@ -11,7 +11,7 @@ public class CrowManager : MonoBehaviour
     [SerializeField] private GameObject crowPrefab;
 
 
-    private List<Crow> _crows = new();
+    public List<Crow> Crows = new();
 
     private CropManager _cropManager;
 
@@ -42,7 +42,7 @@ public class CrowManager : MonoBehaviour
         var crow = Instantiate(crowPrefab, spawnLocation, Quaternion.identity).GetComponent<Crow>();
         crow.target = target;
         crow.crowManager = this;
-        _crows.Add(crow);
+        Crows.Add(crow);
     }
 
 

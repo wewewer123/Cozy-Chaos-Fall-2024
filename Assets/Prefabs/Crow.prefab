@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 278478553368331947}
   - component: {fileID: 5423268513400310529}
-  m_Layer: 0
+  - component: {fileID: -5291499812804042311}
+  - component: {fileID: 2547254993701799255}
+  m_Layer: 7
   m_Name: Crow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +48,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flySpeed: 8
-  destination: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  crowManager: {fileID: 0}
+--- !u!61 &-5291499812804042311
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654734750312826095}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &2547254993701799255
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654734750312826095}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5128244716771793398
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7631793236781845756}
   - component: {fileID: 1428224055201747667}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
